@@ -24,7 +24,7 @@ def main():
     print(f"Downloading version: {remote_package_version}")
     with open("omada_latest.deb", "wb") as file:
         file.write(requests.get(latest_url).content)
-    print(f"File SHA256: {get_sha256_hash("omada_latest.deb")}")
+    print(f"File SHA256: {get_sha256_hash('omada_latest.deb')}")
 
 if __name__ == '__main__':
     main()
