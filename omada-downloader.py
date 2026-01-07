@@ -20,11 +20,11 @@ def get_sha256_hash(filename):
 
 def main():
     latest_url = get_latest()
-    remote_package_version = latest_url.split("/")[-1].split("_")[3]
+    remote_package_version = latest_url.split("/")[-1].split("_")[1]
     print(f"Downloading version: {remote_package_version}")
-    with open("omada_latest.deb", "wb") as file:
+    with open(f"omada_{remote_package_version}.deb", "wb") as file:
         file.write(requests.get(latest_url).content)
-    print(f"File SHA256: {get_sha256_hash('omada_latest.deb')}")
+    print(f"File SHA256: {get_sha256_hash(f"omada_{remote_package_version}.deb")}")
 
 if __name__ == '__main__':
     main()
